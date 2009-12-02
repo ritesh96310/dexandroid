@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Title for the search suggest provider. -->
+    <string name="global_search">Quick Search Box</string>
+
+    <!-- Do not translate.  This string is not displayed in UI (because we have a badge icon). -->
+    <string name="search_label" translatable="false">Quick Search Box</string>
+
+    <!-- This is the hint text shown in the system search dialog for global search, 
+         before text is entered. -->
+    <string name="search_hint">Quick Search Box</string>
+
+    <!-- The title and description of the suggestion that is always shown
+         at the end of a list of results to let
+         the user search the web for the query currently in the text field.
+         The first line is shown larger (the title) than the second
+         (the description). -->
+    <string name="search_the_web">Search the web\nfor \'<xliff:g id="term">%1$s</xliff:g>\'</string>
+    
+    <!-- The title of the suggestion that is shown at the end of a list of results if the query
+         seems to match a url, to let the user go straight to the browser with that url. -->
+    <string name="go_to_website_title">Go to website</string>
+    
+    <string name="more_results">More results...</string>
+    
+    <!-- A count of the number of results provided by a particular app to global search,
+         to be displayed in the "More results..." list item.
+         This string will be used when no results from the source were shown in the top-level
+         promoted list of search suggestions, whereas the 'additional_result_count' string will be
+         used when some results from the source were shown in the top-level list. -->
+    <plurals name="total_result_count">
+        <!-- Case of one result. -->
+        <item quantity="one"><xliff:g id="number" example="1">%d</xliff:g> result</item>
+        
+        <!-- Case of "few" (small number of) results. -->
+        <item quantity="few"><xliff:g id="number" example="2">%d</xliff:g> results</item>
+        
+        <!-- Case of a plural number of results. -->
+        <item quantity="other"><xliff:g id="number" example="5">%d</xliff:g> results</item>
+    </plurals>
+
+    <!-- A count of the number of additional results provided by a particular app to global search,
+         that haven't been displayed in the promoted list, to be displayed in the "More results..."
+         list item.
+         This string will be used when some results from the source were shown in the top-level
+         promoted list of search suggestions, whereas the 'total_result_count' string will be used
+         when no results from the source were shown in the top-level list. -->
+    <plurals name="additional_result_count">
+        <!-- Case of one result. -->
+        <item quantity="one"><xliff:g id="number" example="1">%d</xliff:g> additional result</item>
+
+        <!-- Case of "few" (small number of) results. -->
+        <item quantity="few"><xliff:g id="number" example="2">%d</xliff:g> additional results</item>
+
+        <!-- Case of a plural number of results. -->
+        <item quantity="other"><xliff:g id="number" example="5">%d</xliff:g> additional results</item>
+    </plurals>
+
+    <!-- Used for showing app names and their counts in the "More results..." list item of global
+         search. -->
+    <string name="result_count_count_separator"><xliff:g id="application" example="Contacts">%1$s</xliff:g>: <xliff:g id="number" example="5">%2$s</xliff:g></string>
+
+    <!-- Used for showing multiple app result counts in the "More results..." list item of global
+         search. -->
+    <string name="result_count_app_separator"><xliff:g id="app1" example="Apps: 1">%1$s</xliff:g>, <xliff:g id="app2" example="Contacts: 8">%2$s</xliff:g></string>
+
+    <!-- Search settings stuff -->
+    
+    <!-- Search settings title -->
+    <string name="search_settings">Search settings</string>
+    
+    <!-- Title for 'web search' category of search settings -->
+    <string name="web_search_category_title">Web search</string>
+    
+    <!-- Title and summary for 'search engine' setting -->
+    <string name="web_search_source">Web search engine</string>
+    <string name="web_search_source_summary"><xliff:g id="source" example="Google">%1$s</xliff:g></string>
+    
+    <!-- Title and summaries for 'search engine settings' link (if available for the chosen
+         web search source) -->
+    <string name="search_engine_settings">Search engine settings</string>
+    <string name="search_engine_settings_summary_enabled">Settings for <xliff:g id="provider" example="Google">%1$s</xliff:g></string>
+    <string name="search_engine_settings_summary_disabled">No settings for <xliff:g id="provider" example="Google">%1$s</xliff:g></string>
+    
+    <!-- Title for 'system search' category of search settings -->
+    <string name="system_search_category_title">Quick Search Box</string>
+    
+    <!-- Title and summary for 'search sources' link for system search -->
+    <string name="search_sources">Searchable items</string>
+    <string name="search_sources_summary">Choose what to search on the phone</string>
+
+    <!-- Title and summary used for the option to clear search shortcuts from the system
+         search history -->
+    <string name="clear_shortcuts">Clear search shortcuts</string>
+    <string name="clear_shortcuts_summary">Clear shortcuts to recently chosen search results</string>
+    
+    <!-- Strings used in the dialog shown after choosing the 'clear search shortcuts' setting. -->
+    <string name="clear_shortcuts_prompt">"This will clear all shortcuts to recently chosen search results."\n\n"(To clear your Browser history, use the Browser's settings.)"</string>
+    <string name="agree">OK</string>
+    <string name="disagree">Cancel</string>
+        
+</resources>
