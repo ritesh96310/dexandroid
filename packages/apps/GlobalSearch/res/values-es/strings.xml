@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="global_search" msgid="1559383639633943667">"Cuadro de búsqueda rápida"</string>
+    <string name="search_hint" msgid="7327393700556312801">"Cuadro de búsqueda rápida"</string>
+    <string name="search_the_web" msgid="3101305283513526982">"Buscar en la Web"\n" \"<xliff:g id="TERM">%1$s</xliff:g>\""</string>
+    <string name="go_to_website_title" msgid="2452460002069003538">"Ir al sitio web"</string>
+    <string name="more_results" msgid="1297081065013362588">"Más resultados..."</string>
+  <plurals name="total_result_count">
+    <item quantity="one" msgid="7485942071987850270">"<xliff:g id="NUMBER">%d</xliff:g> resultado"</item>
+    <item quantity="few" msgid="6558220476009955065">"<xliff:g id="NUMBER">%d</xliff:g> resultados"</item>
+    <item quantity="other" msgid="8467279008490605482">"<xliff:g id="NUMBER">%d</xliff:g> resultados"</item>
+  </plurals>
+  <plurals name="additional_result_count">
+    <item quantity="one" msgid="7296900969259348969">"<xliff:g id="NUMBER">%d</xliff:g> resultado adicional"</item>
+    <item quantity="few" msgid="7805537205647548925">"<xliff:g id="NUMBER">%d</xliff:g> resultados adicionales"</item>
+    <item quantity="other" msgid="112627503235084549">"<xliff:g id="NUMBER">%d</xliff:g> resultados adicionales"</item>
+  </plurals>
+    <string name="result_count_count_separator" msgid="2676388893042530276">"<xliff:g id="APPLICATION">%1$s</xliff:g>: <xliff:g id="NUMBER">%2$s</xliff:g>"</string>
+    <string name="result_count_app_separator" msgid="6526206655233772836">"<xliff:g id="APP1">%1$s</xliff:g>, <xliff:g id="APP2">%2$s</xliff:g>"</string>
+    <string name="search_settings" msgid="2522442443192038495">"Configuración de búsqueda"</string>
+    <string name="web_search_category_title" msgid="9091556547843829495">"Búsqueda web"</string>
+    <string name="web_search_source" msgid="3143612593956844440">"Motor de búsqueda web"</string>
+    <!-- no translation found for web_search_source_summary (5816356568062433567) -->
+    <skip />
+    <string name="search_engine_settings" msgid="615362367089124241">"Configuración del motor de búsqueda"</string>
+    <string name="search_engine_settings_summary_enabled" msgid="3454725442802836532">"Configuración de <xliff:g id="PROVIDER">%1$s</xliff:g>"</string>
+    <string name="search_engine_settings_summary_disabled" msgid="348816788438307437">"Sin configuración de <xliff:g id="PROVIDER">%1$s</xliff:g>"</string>
+    <string name="system_search_category_title" msgid="1035791922921085981">"Cuadro de búsqueda rápida"</string>
+    <string name="search_sources" msgid="2868416396406193214">"Elementos que se pueden buscar"</string>
+    <string name="search_sources_summary" msgid="8731536724682737524">"Elegir lo que se quiere buscar en el teléfono"</string>
+    <string name="clear_shortcuts" msgid="2044881876759765193">"Borrar accesos directos de búsqueda"</string>
+    <string name="clear_shortcuts_summary" msgid="247652062610173214">"Borrar los accesos directos a los resultados de búsqueda seleccionados recientemente"</string>
+    <string name="clear_shortcuts_prompt" msgid="6457730799428681273">"Se borrarán todos los resultados de búsqueda seleccionados recientemente."\n\n"(Para borrar el historial de tu navegador, utiliza las opciones de configuración del navegador)."</string>
+    <string name="agree" msgid="5936827660124788057">"Aceptar"</string>
+    <string name="disagree" msgid="8368106764820833311">"Cancelar"</string>
+</resources>

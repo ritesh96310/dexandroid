@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2009 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<!--
+This file contains standard test definitions for the Android platform
+
+The following test types are supported:
+ - On device Java instrumentation tests are defined by <test> tags.
+ - native ones (C/C++) are defined by <test-native> tags.
+ - host java tests are defined by <test-host> tags.
+
+See test_defs.xsd for more information.
+-->
+
+<test-definitions xmlns="http://schemas.android.com/testrunner/test_defs/1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://schemas.android.com/testrunner/test_defs/1.0 test_defs.xsd">
+
+<!-- system-wide tests -->
+<test name="framework"
+    build_path="frameworks/base/tests/FrameworkTest"
+    package="com.android.frameworktest.tests"
+    class="com.android.frameworktest.AllTests"
+    coverage_target="framework"
+    continuous="true" />
+
+<test name="android"
+    build_path="frameworks/base/tests/AndroidTests"
+    package="com.android.unit_tests"
+    class="com.android.unit_tests.AndroidTests"
+    coverage_target="framework"
+    continuous="true" />
+
+<test name="account"
+    build_path="frameworks/base/tests/AndroidTests"
+    package="com.android.unit_tests"
+    class="com.android.unit_tests.accounts.AccountManagerServiceTest"
+    coverage_target="framework" />
+
+<test name="smoke"
+    build_path="frameworks/base/tests/SmokeTest"
+    package="com.android.smoketest.tests"
+    coverage_target="framework"
+    continuous="true" />
+
+<test name="core"
+    build_path="frameworks/base/tests/CoreTests"
+    package="android.core"
+    class="android.core.CoreTests"
+    coverage_target="framework"
+    continuous="true" />
+
+<test name="libcore"
+    build_path="frameworks/base/tests/CoreTests"
+    package="android.core"
+    class="android.core.JavaTests"
+    coverage_target="framework" />
+
+<test name="apidemos"
+    build_path="development/samples/ApiDemos"
+    package="com.example.android.apis.tests"
+    coverage_target="ApiDemos" />
+
+<test name="launchperf"
+    build_path="development/apps/launchperf"
+    package="com.android.launchperf"
+    runner=".SimpleActivityLaunchPerformance"
+    coverage_target="framework" />
+
+<!--  targeted framework tests -->
+<test name="heap"
+    build_path="frameworks/base/tests/AndroidTests"
+    package="com.android.unit_tests"
+    class="com.android.unit_tests.HeapTest"
+    coverage_target="framework" />
+
+<test name="activity"
+    build_path="frameworks/base/tests/AndroidTests"
+    package="com.android.unit_tests"
+    class="com.android.unit_tests.activity.ActivityTests"
+    coverage_target="framework" />
+
+<test name="keystore-unit"
+    build_path="frameworks/base/keystore/tests"
+    package="android.security.tests"
+    runner=".KeyStoreTestRunner"
+    coverage_target="framework"
+    continuous="true" />
+
+<test name="vpntests"
+    build_path="frameworks/base/tests/AndroidTests"
+    package="com.android.unit_tests"
+    class="com.android.unit_tests.VpnTest"
+    coverage_target="framework"
+    continuous="true" />
+
+<!--  obsolete?
+<test name="deadlock"
+    build_path="frameworks/base/tests/Deadlock"
+    package="com.android.deadlock.tests"
+    coverage_target="framework" />
+ -->
+
+
+<test name="contentprovideroperation"
+    build_path="frameworks/base/tests/FrameworkTest"
+    package="com.android.frameworktest.tests"
+    class="android.content.ContentProviderOperationTest"
+    coverage_target="framework" />
+
+<test name="tablemerger"
+    build_path="frameworks/base/tests/FrameworkTest"
+    package="com.android.frameworktest.tests"
+    class="android.content.AbstractTableMergerTest"
+    coverage_target="framework" />
+
+<test name="imf"
+    build_path="frameworks/base/tests/ImfTest"
+    package="com.android.imftest.tests"
+    coverage_target="framework"
+    continuous="true" />
+
+<test name="framework-permission"
+    build_path="frameworks/base/tests/permission"
+    package="com.android.framework.permission.tests"
+    runner="android.test.InstrumentationTestRunner"
+    coverage_target="framework"
+    continuous="true" />
+
+<!--  cts tests -->
+
+<test name="cts-permission"
+    build_path="cts/tests/tests/permission"
+    package="com.android.cts.permission"
+    runner="android.test.InstrumentationTestRunner"
+    coverage_target="framework"
+    continuous="true"
+    cts="true" />
+
+<test name="cts-permission2"
+    build_path="cts/tests/tests/permission2"
+    package="com.android.cts.permission2"
+    runner="android.test.InstrumentationTestRunner"
+    coverage_target="framework"
+    continuous="true"
+    cts="true" />
+
+<test name="cts-process"
+    build_path="cts/tests/tests/process"
+    package="com.android.cts.process"
+    coverage_target="framework"
+    cts="true" />
+
+<test name="cts-api-signature"
+    build_path="cts/tests/SignatureTest"
+    package="android.tests.sigtest"
+    runner=".InstrumentationRunner"
+    cts="true" />
+
+<test name="cts-api-signature-func"
+    build_path="cts/tests/SignatureTest"
+    package="android.tests.sigtest.tests"
+    cts="true" />
+
+<test name="cts-apidemos"
+    build_path="cts/tests/ApiDemosReferenceTest"
+    package="android.apidemos.cts"
+    coverage_target="ApiDemos"
+    cts="true" />
+
+<test name="cts-app"
+    build_path="cts/tests/tests/app"
+    package="com.android.cts.app"
+    runner="android.test.InstrumentationCtsTestRunner"
+    coverage_target="framework"
+    cts="true" />
+
+<test name="cts-content"
+    build_path="cts/tests/tests/content"
+    package="com.android.cts.content"
+    runner="android.test.InstrumentationCtsTestRunner"
+    coverage_target="framework"
+    cts="true" />
+
+<test name="cts-database"
+    build_path="cts/tests/tests/database"
+    package="com.android.cts.database"
+    runner="android.test.InstrumentationCtsTestRunner"
+    coverage_target="framework"
+    cts="true" />
+
+<test name="cts-gesture"
+    build_path="cts/tests/tests/gesture"
+    package="com.android.cts.gesture"
+    runner="android.test.InstrumentationTestRunner"
+    coverage_target="framework"
+    cts="true" />
+
+<test name="cts-graphics"
+    build_path="cts/tests/tests/graphics"
+    package="com.android.cts.graphics"
+    runner="android.test.InstrumentationCtsTestRunner"
+    coverage_target="framework"
+    cts="true" />
+
+<test name="cts-hardware"
+    build_path="cts/tests/tests/hardware"
+    package="com.android.cts.hardware"
+    runner="android.test.InstrumentationCtsTestRunner"
+    coverage_target="framework"
+    cts="true" />
+
+<test name="cts-location"
+    build_path="cts/tests/tests/location"
+    package="com.android.cts.location"
+    runner="android.test.InstrumentationCtsTestRunner"
+    coverage_target="framework"
+    cts="true" />
+
+<test name="cts-media"
+    build_path="cts/tests/tests/media"
+    package="com.android.cts.media"
+    runner="android.test.InstrumentationCtsTestRunner"
+    coverage_target="framework"
+    cts="true" />
+
+<test name="cts-net"
+    build_path="cts/tests/tests/net"
+    package="com.android.cts.net"
+    runner="android.test.InstrumentationCtsTestRunner"
+    coverage_target="framework"
+    cts="true" />
+
+<test name="cts-os"
+    build_path="cts/tests/tests/os"
+    package="com.android.cts.os"
+    runner="android.test.InstrumentationCtsTestRunner"
+    coverage_target="framework"
+    cts="true" />
+
+<test name="cts-perf1"
+    build_path="cts/tests/tests/performance"
+    package="com.android.cts.performance"
+    runner="android.test.InstrumentationCtsTestRunner"
+    cts="true" />
+
+<test name="cts-perf2"
+    build_path="cts/tests/tests/performance2"
+    package="com.android.cts.performance2"
+    runner="android.test.InstrumentationCtsTestRunner"
+    cts="true" />
+
+<test name="cts-perf3"
+    build_path="cts/tests/tests/performance3"
+    package="com.android.cts.performance3"
+    runner="android.test.InstrumentationCtsTestRunner"
+    cts="true" />
+
+<test name="cts-perf4"
+    build_path="cts/tests/tests/performance4"
+    package="com.android.cts.performance4"
+    runner="android.test.InstrumentationCtsTestRunner"
+    cts="true" />
+
+<test name="cts-perf5"
+    build_path="cts/tests/tests/performance5"
+    package="com.android.cts.performance5"
+    runner="android.test.InstrumentationCtsTestRunner"
+    cts="true" />
+
+<test name="cts-provider"
+    build_path="cts/tests/tests/provider"
+    package="com.android.cts.provider"
+    runner="android.test.InstrumentationCtsTestRunner"
+    coverage_target="framework"
+    cts="true" />
+
+<test name="cts-text"
+    build_path="cts/tests/tests/text"
+    package="com.android.cts.text"
+    runner="android.test.InstrumentationCtsTestRunner"
+    coverage_target="framework"
+    cts="true" />
+
+<test name="cts-telephony"
+    build_path="cts/tests/tests/telephony"
+    package="com.android.cts.telephony"
+    runner="android.test.InstrumentationCtsTestRunner"
+    coverage_target="framework"
+    cts="true" />
+
+<test name="cts-util"
+    build_path="cts/tests/tests/util"
+    package="com.android.cts.util"
+    runner="android.test.InstrumentationCtsTestRunner"
+    coverage_target="framework"
+    cts="true" />
+
+<test name="cts-view"
+    build_path="cts/tests/tests/view"
+    package="com.android.cts.view"
+    runner="android.test.InstrumentationCtsTestRunner"
+    coverage_target="framework"
+    cts="true" />
+
+<test name="cts-webkit"
+    build_path="cts/tests/tests/webkit"
+    package="com.android.cts.webkit"
+    runner="android.test.InstrumentationCtsTestRunner"
+    coverage_target="framework"
+    cts="true" />
+
+<test name="cts-widget"
+    build_path="cts/tests/tests/widget"
+    package="com.android.cts.widget"
+    runner="android.test.InstrumentationCtsTestRunner"
+    coverage_target="framework"
+    cts="true" />
+
+<!--  end of cts tests -->
+
+<!--  selected app tests -->
+<test name="browser"
+    build_path="packages/apps/Browser"
+    package="com.android.browser"
+    runner=".BrowserTestRunner"
+    coverage_target="Browser" />
+
+<test name="browserfunc"
+    build_path="packages/apps/Browser"
+    package="com.android.browser"
+    runner=".BrowserFunctionalTestRunner"
+    coverage_target="Browser" />
+
+<test name="calendar"
+    build_path="packages/apps/Calendar/tests"
+    package="com.android.calendar.tests"
+    coverage_target="Calendar"
+    continuous="true" />
+
+<test name="calprov"
+    build_path="packages/providers/CalendarProvider/tests"
+    package="com.android.providers.calendar.tests"
+    coverage_target="CalendarProvider" />
+
+<test name="camerastress"
+    build_path="packages/apps/Camera"
+    package="com.android.camera.tests"
+    class="com.android.camera.StressTests"
+    coverage_target="Camera" />
+
+<test name="cameralatency"
+    build_path="packages/apps/Camera"
+    package="com.android.camera.tests"
+    class="com.android.camera.stress.CameraLatency"
+    coverage_target="Camera" />
+
+<test name="camera"
+    build_path="packages/apps/Camera"
+    package="com.android.camera.tests"
+    class="com.android.camera.UnitTests"
+    continuous="true"
+    coverage_target="Camera" />
+
+<test name="contactsprov"
+    build_path="packages/providers/ContactsProvider/tests"
+    package="com.android.providers.contacts.tests"
+    coverage_target="ContactsProvider"
+    continuous="true" />
+
+<test name="contacts"
+    build_path="packages/apps/Contacts"
+    package="com.android.contacts.tests"
+    runner="android.test.InstrumentationTestRunner"
+    coverage_target="Contacts"
+    description="Tests for the Contacts app."
+    continuous="true" />
+
+<test name="gcontactsprov"
+    build_path="packages/providers/GoogleContactsProvider/tests"
+    package="com.android.providers.contactstests"
+    coverage_target="GoogleContactsProvider" />
+
+<test name="downloadprovider-permission"
+    build_path="packages/providers/DownloadProvider/tests/permission"
+    package="com.android.providers.downloads.permission.tests"
+    coverage_target="DownloadProvider"
+    continuous="true" />
+
+<test name="email"
+    build_path="packages/apps/Email"
+    package="com.android.email.tests"
+    coverage_target="Email"
+    continuous="true" />
+
+<test name="emailsmall"
+    build_path="packages/apps/Email"
+    package="com.android.email.tests"
+    class="com.android.email.SmallTests"
+    coverage_target="Email" />
+
+<test name="globalsearch"
+    build_path="packages/apps/GlobalSearch"
+    package="com.android.globalsearch.tests"
+    coverage_target="GlobalSearch"
+    continuous="true" />
+
+<test name="globalsearch-permission"
+    build_path="packages/apps/GlobalSearch"
+    package="com.android.globalsearch.permission.tests"
+    coverage_target="GlobalSearch"
+    continuous="true" />
+
+<test name="improvider-permission"
+    build_path="packages/providers/ImProvider/tests/permission"
+    package="com.android.providers.im.permission.tests"
+    coverage_target="ImProvider"
+    continuous="true" />
+
+<test name="media"
+    build_path="frameworks/base/media/tests/MediaFrameworkTest"
+    package="com.android.mediaframeworktest"
+    runner=".MediaFrameworkTestRunner"
+    coverage_target="framework"
+    continuous="true" />
+
+<test name="mediaapitest"
+    build_path="frameworks/base/media/tests/MediaFrameworkTest"
+    package="com.android.mediaframeworktest"
+    class="com.android.mediaframeworktest.functional.MediaPlayerApiTest"
+    runner=".MediaFrameworkTestRunner"
+    coverage_target="framework" />
+
+<test name="mediarecordertest"
+    build_path="frameworks/base/media/tests/MediaFrameworkTest"
+    package="com.android.mediaframeworktest"
+    class="com.android.mediaframeworktest.functional.MediaRecorderTest"
+    runner=".MediaFrameworkTestRunner"
+    coverage_target="framework" />
+
+<test name="mediastresstest"
+    build_path="frameworks/base/media/tests/MediaFrameworkTest"
+    package="com.android.mediaframeworktest"
+    runner=".MediaRecorderStressTestRunner"
+    coverage_target="framework" />
+
+<test name="mediamemorystress"
+    build_path="frameworks/base/media/tests/MediaFrameworkTest"
+    package="com.android.mediaframeworktest"
+    runner=".MediaFrameworkPerfTestRunner"
+    coverage_target="framework" />
+
+<test name="mediaunit"
+    build_path="frameworks/base/media/tests/MediaFrameworkTest"
+    package="com.android.mediaframeworktest"
+    runner=".MediaFrameworkUnitTestRunner"
+    coverage_target="framework" />
+
+<test name="musicplayer"
+    build_path="packages/apps/Music"
+    package="com.android.music.tests"
+    runner=".MusicPlayerFunctionalTestRunner"
+    coverage_target="Music" />
+
+<!-- obsolete?
+<test name="mediaprov"
+    build_path="tests/MediaProvider"
+    package="com.android.mediaprovidertests"
+    runner=".MediaProviderTestsInstrumentation"
+    coverage_target="MediaProvider" />
+ -->
+
+<test name="mms"
+    build_path="packages/apps/Mms"
+    package="com.android.mms.tests"
+    coverage_target="Mms" />
+
+<test name="mmslaunch"
+    build_path="packages/apps/Mms"
+    package="com.android.mms.tests"
+    runner="com.android.mms.SmsLaunchPerformance"
+    coverage_target="Mms" />
+
+<test name="telephony-unit"
+    build_path="frameworks/base/telephony/tests/TelephonyTest"
+    package="com.android.telephonytest"
+    runner=".TelephonyUnitTestRunner"
+    coverage_target="framework" />
+
+<!-- obsolete?
+<test name="ringtone"
+    build_path="tests/RingtoneSettings"
+    package="com.android.ringtonesettingstests"
+    runner=".RingtoneSettingsInstrumentationTestRunner"
+    coverage_target="Settings" />
+-->
+
+<!--  native tests  -->
+
+<!-- Bionic C++ -->
+<test-native name="libstdcpp"
+    build_path="system/extras/tests/bionic/libstdc++"
+    description="Bionic libstdc++."
+    extra_build_args="BIONIC_TESTS=1" />
+
+<test-native name="libskia"
+    build_path="external/skia/tests"
+    description="Skia tests." />
+
+<!--  Android STL tests -->
+<test-native name="astl"
+    build_path="external/astl/tests"
+    description="Android STL."
+    extra_build_args="ASTL_TESTS=1" />
+
+<!-- pending patch 820
+<test-native name="gtest"
+    build_path="external/gtest"
+    description="Google test."
+    extra_build_args="GTEST_TESTS=1" />
+-->
+
+<!-- host java tests -->
+<test-host name="cts-appsecurity"
+    build_path="cts/tests/appsecurity-tests"
+    class="com.android.cts.appsecurity.AppSecurityTests"
+    jar_name="CtsAppSecurityTests.jar"
+    cts="true" />
+
+</test-definitions>

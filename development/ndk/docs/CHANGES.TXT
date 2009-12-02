@@ -1,0 +1,138 @@
+Android NDK ChangeLog:
+
+-------------------------------------------------------------------------------
+current version
+
+IMPORTANT BUG FIXES:
+
+- Fix build/host-setup.sh to execute as a Bourne shell script (again)
+
+- Make target shared libraries portable to systems that don't use the exact same
+  toolchain (GCC 4.2.1) .
+
+- Actually use the awk version detected by host-setup.sh during the build.
+
+
+IMPORTANT CHANGES:
+
+- Added platform eclair-5 to reflect the Eclair branch. This is merely a copy
+  of android-4 that also includes headers and libraries for OpenGL ES 2.0.
+
+  See the sample named "hello-gl2" for a *very* basic demonstration. Note that
+  OpenGL ES 2.0 is currently *not* available from Java, and must be used through
+  native code exclusively.
+
+
+OTHER FIXES & CHANGES:
+
+- Added --prebuilt-ndk=FILE option to build/tools/make-release.sh script to
+  package a new experimental NDK package archive from the current source tree
+  plus the toolchain binaries of an existing NDK release package. E.g.:
+
+    build/tools/make-release.sh \
+       --prebuilt-ndk=/path/to/android-ndk-1.6_r1-linux-x86.zip
+
+  will generate a new NDK package in /tmp/ndk-release that contains the most
+  up-to-date build scripts, plus the toolchain binaries from 1.6_r1 (which
+  are not in the git repository).
+
+  Also added the --no-git option to collect all sources from the current
+  NDK root directory, instead of the list given by 'git ls-files'. This can
+  be useful if you don't want to checkout the whole 'platform/development'
+  project from repo and still work on the NDK.
+
+  This change is to help people easily package experimental NDK releases to
+  test and distribute fixes and improvements.
+
+- Remove bash-isms from build/tools/build-toolchain.sh. Now it's possible to
+  build it with the 'dash' shell on Debian-based systems (tested on Ubuntu 8.04)
+
+- Remove bash-ism from build/tools/build-ndk-sysroot.sh
+
+- Refresh C library headers for all platforms:
+
+    - make <endian.h> simply include <sys/endian.h>
+    - make <stdint.h> properly declare 64-bit integer types with a C99 compiler
+    - add missing <sys/types.h> to <strings.h>
+    - add GLibc-compatible macro aliases (st_atimensec, st_mtimensec and
+      st_ctimensec) to <stat.h>
+    - add missing declaration for tzset() in <time.h>
+
+-------------------------------------------------------------------------------
+android-ndk-1.6_r1
+
+IMPORTANT BUG FIXES:
+
+- Fix build/host-setup.sh to:
+  * execute as a Bourne shell script
+  * remove unused host gcc dependency
+  * improve Windows host auto-detection
+  * add GNU Make version check
+  * add Nawk/Gawk check
+  * ensure that the script is run from $NDKROOT as build/host-setup.sh
+  * add --help, --verbose, --no-awk-check and --no-make-check options
+
+- Properly add sysroot library search path at build time. This makes a line
+  in Android.mk like:
+
+     LOCAL_LDLIBS := -lz
+
+  Actually work correctly, instead of having the linker complaining that it
+  could not find the corresponding libz.so library. Also clear LOCAL_LDLIBS
+  in $(CLEAR_VARS) script.
+
+
+IMPORTANT CHANGES:
+
+- The 'sources' directory is gone. The NDK build system now looks for
+  $(APP_PROJECT_PATH)/jni/Android.mk by default. You can override this with
+  the new APP_BUILD_SCRIPT variable in Application.mk
+
+  For example, the 'hello-jni' sample uses the following files:
+
+    apps/hello-jni/project/jni/Android.mk
+    apps/hello-jni/project/jni/hello-jni.c
+
+  The 'apps/<name>' directory is still needed in this release though.
+
+- Change LOCAL_CFLAGS / LOCAL_CPPFLAGS to work as in the full Android build
+  system. This means that:
+
+    - LOCAL_CFLAGS   is now used for *both* C and C++ sources  (was only for C)
+    - LOCAL_CPPFLAGS is now used for C++ sources only (was for both C and C++)
+    - LOCAL_CXXFLAGS is used like LOCAL_CPPFLAGS but is considered obsolete.
+      (will disappear in next release)
+
+  Also fixed APP_CPPFLAGS / APP_CFLAGS / APP_CXXFLAGS correspondingly.
+
+- Rename build/platforms/android-1.5 to build/platforms/android-3 to match
+  the Android API level instead of the marketing speak.
+
+  Also add a new build/platforms/android-4, and make the build system select
+  which platform to use based on the content of the project file named
+  $(APP_PROJECT_PATH)/default.properties.
+
+- Add OpenGL ES 1.x headers and libraries to the android-4 stable APIs.
+  (NOTE: they are *not* available for android-3)
+
+  Also provide a small port of the "San Angeles Observation" demo to show
+  how to make a simple Android application that uses them.
+
+
+OTHER FIXES & CHANGES
+
+- Generate thumb binaries by default.
+
+- Add support for LOCAL_ARM_MODE in Android.mk.
+
+- Add support for the '.arm' suffix in source file names to force the
+  compilation of a single source in arm (32-bit) mode.
+
+- Generate proper unoptimized versions of binaries when APP_OPTIM := debug
+
+- Add support for LOCAL_C_INCLUDES in Android.mk
+
+- Fix compilation of assembler files (e.g. foo.S)
+
+-------------------------------------------------------------------------------
+android-ndk-1.5_r1 released.

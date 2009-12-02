@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Search source name as displayed in the search dialog. -->
+    <string name="search_label">Google</string>
+
+    <!-- The app label as shown, for example, in 'manage applications'. -->
+    <string name="app_label">Google Search</string>
+
+    <!-- This is the hint text shown in the search widget, before text is entered. -->
+    <!-- This translation MUST MATCH the string "search_hint" which is found in
+         Home/res/values/strings.xml -->
+    <string name="search_hint">Google Search</string>
+
+    <!-- Settings category title for 'Google search settings' settings activity -->
+    <string name="google_search_settings">Google search settings</string>
+
+    <!-- Title and summaries for 'show web suggestions' check box setting -->
+    <string name="show_web_suggestions">Show web suggestions</string>
+    <string name="show_web_suggestions_summary_enabled">Show suggestions from Google as you type</string>
+    <string name="show_web_suggestions_summary_disabled">Don\'t show suggestions from Google as you type</string>
+
+    <!-- Note that this is the standard search url.  It uses the current locale for language -->
+    <!-- (%1$s) and country (%2$s) and shouldn't need to be replaced by locale or mcc selected -->
+    <!-- resources. -->
+    <!-- Any changes to this (especially in terms of adding/removing the MCC-specific flavors) -->
+    <!-- should be mirrored by changes in GenieProvider. -->
+    <!-- Do not translate.  This string is an internal URI, not seen in the UI. -->
+    <string name="google_search_base" translatable="false">
+        http://www.google.com/m?hl=%1$s&amp;gl=%2$s&amp;</string>
+
+    <!-- Note that this is the standard suggest url.  It uses the current locale for language -->
+    <!-- (t%1$s) and country (%2$s) and should not need to be replaced by locale or mcc -->
+    <!-- selected resources. -->
+    <!-- Any changes to this (especially in terms of adding/removing the MCC-specific flavors) -->
+    <!-- should be mirrored by changes in GenieProvider -->
+    <!-- Do not translate.  This string is an internal URI, not seen in the UI. -->
+    <string name="google_suggest_base" translatable="false">
+        http://www.google.com/complete/search?hl=%1$s&amp;gl=%2$s&amp;</string>
+</resources>
